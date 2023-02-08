@@ -1,0 +1,12 @@
+@mixin hover() {
+  @keyframes hover {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(1rem);
+    }
+  }
+
+  animation: hover 2s ease-in-out infinite alternate;
+}
