@@ -30,7 +30,7 @@ header {
   grid-auto-rows: 100%;
   grid-auto-columns: 50% 50%;
 
-  .item {
+  div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,11 +38,11 @@ header {
   }
 
   &__video {
-    position: absolute;
+    position: relative;
     background: $background-contrast;
-    z-index: $index-top;
-    width: 0%;
-    height: 0%;
+    pointer-events: none;
+    width: 80%;
+    height: 80%;
 
     video {
       width: 100%;
