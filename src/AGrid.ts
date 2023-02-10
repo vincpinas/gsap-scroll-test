@@ -23,26 +23,29 @@ export default class AGrid {
 
   createTimelineAnimation() {
     console.log("Creating timeline animation..");
-    const tl = gsap.timeline();
-
-    tl.to(this.video, {
+    gsap.timeline({
       scrollTrigger: {
-        trigger: this.video,
-        start: "center center",
-        end: "+=400%",
+        trigger: document.querySelector(this.video)?.parentElement,
+        scrub: 1,
         pin: true,
-      },
-      duration: 1,
-      delay: 0.5,
-      width: "100%",
-      height: "100%",
+        start: "top top",
+        end: "+=100%",
+      }
     })
+      .from(this.video, {
+        scale: 0.5,
+        ease: "none",
+      })
+      .to(this.video, {
+        scrollTrigger: {
+          trigger: document.querySelector(this.video)?.parentElement,
+          scrub: 1,
+          start: "center top",
+          end: "+=25%",
+        },
+        scale: 0.5,
+        ease: "none",
+      })
 
-    tl.to(this.video,
-      {
-        duration: 1,
-        width: "80%",
-        height: "80%",
-      }, ">")
   }
 }
